@@ -1,0 +1,19 @@
+{
+  "width_mm": 178,
+  "font_pt": 7.0,
+  "panel_font_pt": 8.0,
+  "preview_dpi": 150,
+  "png_dpi": 600,
+  "export_svg": true,
+  "export_tiff": false,
+  "supplementary": true,
+  "kde_max_points": 4000,
+  "show_points_per_group": 120,
+  "random_seed": 20261028,
+  "strict_layout": true,
+  "main1_height_mm": 106,
+  "main2_height_mm": 114,
+  "main3_height_mm": 112,
+  "main4_height_mm": 116,
+  "main_box_aspect": null
+}
