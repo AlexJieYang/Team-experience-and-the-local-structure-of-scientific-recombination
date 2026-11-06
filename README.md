@@ -13,7 +13,6 @@ Python handles data preparation, sparse history reconstruction, and figures. R h
 | [03_Figures.ipynb](03_Figures.ipynb) | Render observational main and supplementary figures |
 | [04_History_Benchmark_Python.ipynb](04_History_Benchmark_Python.ipynb) | Reconstruct and reassign complete prior author histories |
 | [05_Benchmark_Models_R.ipynb](05_Benchmark_Models_R.ipynb) | Estimate benchmark models or assemble completed worlds |
-| [05_Completed_Results_R.ipynb](05_Completed_Results_R.ipynb) | Optional entry point for completed benchmark results |
 | [06_Benchmark_Figures_Python.ipynb](06_Benchmark_Figures_Python.ipynb) | Summarize benchmark comparisons and render figures |
 | Python modules | Data processing, matching, figures, and result exports |
 | R scripts | Observational models, benchmark models, and completed-result summaries |
@@ -70,10 +69,10 @@ For an analysis starting from the input tables, run notebooks 01 through 06 in n
 | Source tables only | 01, 02, 03, 04, 05, 06 |
 | Completed annual panel and observational models | 04, 05, 06 |
 | Completed observational model exports | 03 |
-| Completed benchmark models and support files | 05_Completed_Results_R, then 06 |
+| Completed benchmark models and support files | 05 with `MODE <- "summarize"`, then 06 |
 | Benchmark tables already assembled | 06 |
 
-The optional completed-results notebook does not estimate additional regressions.
+In notebook 05, `MODE <- "summarize"` assembles completed model worlds, actual estimation samples, and shared-support summaries without estimating additional regressions.
 
 For another completed results directory, set RESULTS_ROOT in notebook 03. For an existing benchmark directory, select its run_name in benchmark_config.json. If an active_benchmark.json file is present, it selects the active benchmark run.
 
