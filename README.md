@@ -44,7 +44,7 @@ Use the Python kernel for notebooks 01, 03, 04, and 06. Use the R kernel for not
 
 ## Data configuration
 
-The underlying data and generated analysis directories are not included. Supply the SciSciNet2-derived research tables and prepared graph tables described in [docs/DATA.md](docs/DATA.md).
+The workflow uses SciSciNet2-derived research tables and prepared graph tables. Data types and identifier conventions are described in [docs/DATA.md](docs/DATA.md).
 
 Set these paths before running the workflow:
 
@@ -63,7 +63,7 @@ The active_benchmark.json file is generated locally when notebook 04 selects a r
 
 ## Running the analysis
 
-For an analysis starting from the input tables, run notebooks 01 through 06 in numerical order. The default estimate mode in notebook 05 estimates missing worlds and uses compatible completed worlds when available.
+For an analysis starting from the input tables, run notebooks 01 through 06 in numerical order. The default estimate mode in notebook 05 estimates new worlds and reuses compatible completed worlds.
 
 | Available inputs | Entry point |
 | --- | --- |
@@ -119,7 +119,7 @@ PDF and SVG files retain vector geometry. Final PNG files use 600 dpi by default
 
 ## Notebook sources
 
-Notebooks contain source cells without saved outputs, execution counts or execution metadata. Run the appropriate stages with the required external inputs to generate numerical results and figures. Completed result directories can be reused through the entry points listed above.
+Notebooks contain source cells without saved outputs, execution counts or execution metadata. Run the appropriate stages to generate numerical results and figures. Completed result directories can be reused through the entry points listed above.
 
 ## Resources and continuing a run
 
@@ -133,7 +133,7 @@ Completed stages, annual histories, assignment worlds, and model worlds are reus
 python tools/check_sources.py
 ```
 
-GitHub Actions runs the same checks for Python syntax, JSON and notebook structure, including empty outputs and execution metadata. It does not execute notebooks, scientific analyses, randomization, model estimation or tests. R cells are checked as notebook source text; R syntax is not validated by this workflow.
+GitHub Actions runs the same checks for Python syntax, JSON and notebook structure, including empty outputs and execution metadata. R cells are checked as notebook source text.
 
 `.gitignore` excludes local datasets, generated result directories, runtime files and local active-run settings. Keep the notebook files and supporting modules together at the repository root.
 
