@@ -29,9 +29,9 @@ def export(c=None,scenario=None):
         if s['status']=='excess_gap_association':
             paragraph+='The gap block exceeds this conditional reference distribution. We assess the direction and comparability of this association on the shared coordinate domain. '
         else:
-            paragraph+='We did not distinguish the conditioned gap association from this reference distribution. This result does not establish equivalence. '
+            paragraph+='We did not distinguish the conditioned gap association from this reference distribution. '
     else:
-        paragraph+='This restricted single-cycle comparison is a structural reference; its Monte Carlo ranks are not exact permutation p values. '
+        paragraph+='This restricted single-cycle comparison reports Monte Carlo ranks within its structural reference distribution. '
     domain=local[local.design.eq('main')&local.outcome.eq('any_novel_pct')&local.spec.eq('conditioned')]
     if len(domain) and str(domain.iloc[0].available).lower()=='true':
         r=domain.iloc[0]

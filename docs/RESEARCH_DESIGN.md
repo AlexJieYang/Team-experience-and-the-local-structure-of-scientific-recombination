@@ -48,8 +48,8 @@ Eligible cell pairs are intersected across the observed world and every randomiz
 
 ## Interpretation
 
-Global explanatory strength, directional local contrasts, observed cluster intervals, and randomized reference ranges answer different questions. A global statistic alone does not establish a directional same-coordinate relationship or a causal mechanism.
+Global statistics summarise explanatory strength. Local contrasts describe directional associations on shared coordinates. Observed cluster intervals and randomized reference ranges provide their respective uncertainty summaries.
 
-The configuration-overlap coefficient on the fixed grid is the sum of minimum observed and randomized probability masses. It describes distributional proximity and does not replace local support criteria.
+The configuration-overlap coefficient on the fixed grid is the sum of minimum observed and randomized probability masses. It describes distributional proximity; local comparisons use the support criteria defined above.
 
 Paired matching comparisons use identical estimation papers. Paper-hash and member-cluster sampling comparisons use different samples and are reported as sampling sensitivity. Outcome definitions and supported domains remain explicit in both comparisons.

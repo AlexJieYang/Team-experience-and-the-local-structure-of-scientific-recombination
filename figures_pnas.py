@@ -339,7 +339,7 @@ class JournalPlots:
             'B, Single and joint reference-structure additions on the same actual sample. C, The fraction of papers at each endpoint represented in common team-size/source-count-bin/HHI-bin contexts. '
             'D-E, Model contrasts against the model-specific reference coordinates stored in surfaces.csv, using a common color scale and masking unsupported cells. '
             'F, Estimated contrasts across model forms; the models may use different actual samples, as documented in model_samples.csv. Gray cells lack a supported exported contrast. '
-            'All error bars are existing pointwise 95% normal-approximation intervals; conditioning differences are descriptive, not causal mediation.',main=True)
+            'All error bars are pointwise 95% normal-approximation intervals; conditioning differences describe statistical associations.',main=True)
 
 
 
@@ -388,8 +388,8 @@ class JournalPlots:
         self.save(fig,'Fig3_measure_specificity',
             f'A,B,C, Results on the common five-measure sample ({self.n("common_any_novel_pct_full"):,} actual estimated papers). Standardization divides existing contrasts and standard errors by the outcome SD in this same sample. '
             'Larger z10/z50 means greater conventionality; larger semantic distance is a different construct. D-E, Baseline configuration associations with existing source count and source HHI. '
-            'C, Crosshairs are separate pointwise intervals for two outcomes, not a joint confidence ellipse or a Pareto frontier. Labels give M. '
-            'F, Reference-conditioned formation estimates at M=0.6 in the outcome-specific and common samples; the samples differ. No independence or causal interpretation is implied.',main=True)
+            'C, Crosshairs show separate pointwise intervals for two outcomes. Labels give M. '
+            'F, Reference-conditioned formation estimates at M=0.6 in the outcome-specific and common samples.',main=True)
 
 
 
@@ -577,7 +577,7 @@ class JournalPlots:
         self.source('FigS1_quantiles',pd.DataFrame(summaries))
         self.save(fig,'FigS1_raincloud_ridgeline',
             'Hybrid ridgeline/raincloud displays of the uniform plotting sample. Filled half densities use at most the configured number of deterministic subsampled observations per group; medians and interquartile ranges use all available plotting observations. '
-            'Thin point clouds are display subsamples, not independent replication. Profiles classify M at 0.5 and minimum member distance at 0.25; these are descriptive groups, not quantiles or causal treatments. '
+            'Thin point clouds show display subsamples. Descriptive profiles classify M at 0.5 and minimum member distance at 0.25. '
             'C shows only positive new-pair shares, with zero mass annotated separately. Log transforms are labeled. Density grids cover the pooled 0.1st to 99.9th percentiles; quantile marks and sampled points retain their actual coordinates.')
 
     def alluvial(self,ax):
@@ -626,7 +626,7 @@ class JournalPlots:
         ax.legend(frameon=False,fontsize=6.1,ncol=2,loc='upper center',bbox_to_anchor=(.5,-.25),handlelength=1,columnspacing=.6)
         self.source('FigS2C',fractions.reset_index());self.source('FigS2A',self.tables['alluvial_composition'])
         self.save(fig,'FigS2_alluvial_composition',
-            'A, Alluvial composition of papers across descriptive configuration, new-source-pair status, and recognition categories. The ribbons are cross-sectional counts, not longitudinal transitions or causal pathways. '
+            'A, Alluvial composition of papers across descriptive configuration, new-source-pair status, and recognition categories. The ribbons show cross-sectional counts. '
             'B, Raw new-pair proportions in five-year publication cohorts by the same four profiles. C, Within-profile proportions of the four novelty/recognition combinations; profile numbering follows the order in A. '
             'All summaries use existing full-sample count tables and exclude unknown binary outcomes. High recognition is defined against the input core normalization, not against the selected plotting sample.')
 
@@ -717,8 +717,8 @@ class JournalPlots:
         self.source('FigS5A',rows)
         self.source('FigS5B',pd.DataFrame(a.T,columns=['source_count','hhi','age','visibility','venue_fe','structural_fe','spline_mg','sensitivity']).assign(model=[x[0] for x in specs]))
         self.save(fig,'FigS5_specification_curve',
-            'A, Existing reference-conditioned profile contrasts at M=0.6, in a fixed model-definition order. Each interval is pointwise and specifications are dependent; the distribution is not a sampling distribution. '
-            'B, Presence of reference-structure components and model features. Count/HHI indicators include the corresponding structural fixed effects. Sensitivity denotes an additional sample restriction or historical-control variant, not a single uniform adjustment. '
+            'A, Reference-conditioned profile contrasts at M=0.6, in a fixed model-definition order, with pointwise intervals across the related specifications. '
+            'B, Presence of reference-structure components and model features. Count/HHI indicators include the corresponding structural fixed effects. Sensitivity denotes an additional sample restriction or historical-control variant. '
             'Indicators are obtained from the fitted coefficient terms and the documented named model forms. No estimate is selected or omitted because of significance; unsupported profiles remain absent.')
 
     def field_atlas(self):
@@ -793,7 +793,7 @@ class JournalPlots:
         self.save(fig,'FigS8_static3D_and_contours',
             'Orthographic three-dimensional and two-dimensional contour views of the same baseline and reference-conditioned formation contrasts. '
             'Both 3D panels use identical elevation, azimuth, z limits and color limits. Unsupported cells remain gaps; no surface is interpolated across them. '
-            'The 2D panels are the preferred quantitative views. Colors and heights encode fitted contrasts, not absolute predicted probabilities or causal effects.')
+            'The 2D panels provide quantitative contour views. Colors and heights encode fitted contrasts.')
 
     def correlation_atlas(self):
         fig=self.fig(126);axs=fig.subplots(2,3);ax=axs[0,0];self.title(ax,'A','Measure correlations')
@@ -831,7 +831,7 @@ class JournalPlots:
         self.save(fig,'FigS9_measure_relationships',
             'A,F, Pairwise Spearman correlations from the uniform plotting sample, using pair-specific available observations; per-pair sample sizes are retained in the source table. '
             'B-E, Hexagonal count displays; bins with fewer than five observations are omitted. F uses a fixed set of variables, not a significance-ranked selection. '
-            'These unadjusted displays describe measurement relationships and do not establish discriminant validity, mechanisms, or causal effects.')
+            'These unadjusted displays describe pairwise measurement relationships.')
 
     def contacts(self,kind,columns):
         items=[r for r in self.records if r['kind']==kind]

@@ -1,6 +1,6 @@
 # Input data
 
-The workflow expects a SciSciNet2-derived research directory and a prepared graph directory. The data are supplied separately from this repository.
+The workflow reads a SciSciNet2-derived research directory and a prepared graph directory configured in the project settings.
 
 ## Research tables
 
@@ -17,7 +17,7 @@ The default research directory is data/SciSciNet2_research. Configure another lo
 | metrics/interdisciplinarity.parquet | Optional precomputed reference-field indicators |
 | metrics/embedding_field_history.parquet | Optional paper_id, emb_field_history_count, emb_field_history_distance |
 
-The exact required paper columns and available optional columns are defined by CORE, AUTHOR, PIVOT, and MODULES in data.py. Missing optional measurements remain unavailable for the corresponding analyses.
+The required paper columns and optional measurement columns are defined by CORE, AUTHOR, PIVOT, and MODULES in data.py. Each optional module selects its analyses from the supplied measurements.
 
 Identifiers must remain exact integers or exact character identifiers. Do not convert paper or author identifiers through floating point.
 
@@ -30,7 +30,7 @@ The default graph directory is data/SciSciNet2_prepared. Configure raw_root and 
 | sciscinet_authors_paperid.parquet | paperid, authorid |
 | sciscinet_paperrefs.parquet | citing_paperid, cited_paperid |
 
-The graph inputs are used to reconstruct complete source histories. Scalar member-to-paper distances cannot replace these tables for history reassignment.
+The graph inputs reconstruct complete source histories for author-history reassignment.
 
 ## Existing annual analysis data
 

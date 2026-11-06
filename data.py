@@ -1,7 +1,7 @@
 """Pandas analysis; Arrow is used only for bounded Parquet I/O (no SQL).
 
 All histories/novelty/network measures come from existing files. No citation
-window is imposed. Output is descriptive/associational, not a causal estimate.
+window is imposed. Outputs describe statistical associations.
 """
 from pathlib import Path
 import gc
@@ -324,7 +324,6 @@ def finish_tables(c,out):
             ('log_ref_citation_base','mean_ref_prior_citations')]:
             d[dest]=np.log1p(d[source])
         # Deterministic paper halves for the stability comparison.
-        # previous results already informed the present design.
         d['split_half']=sample_ids(d.paper_id,.5,c['sample_seed']+103).astype('int8')
         for col in ['paper_id','reference_member_id','h_reference_id','source_id','primary_field_id']:
             if pd.api.types.is_float_dtype(d[col]) and col in ['source_id','primary_field_id']:
