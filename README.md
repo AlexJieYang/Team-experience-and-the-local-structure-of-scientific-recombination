@@ -117,11 +117,9 @@ Outputs include coefficient tables, actual estimation samples, global and local 
 
 PDF and SVG files retain vector geometry. Final PNG files use 600 dpi by default; notebook previews use 150 dpi. Figure layouts and interpretation are described in [docs/FIGURES.md](docs/FIGURES.md).
 
-## Embedded notebook results
+## Notebook sources
 
-Executed notebooks retain their saved numerical output and seven embedded PNG figures. Viewing those figures does not require the underlying dataset or execution of the workflow. The recorded results correspond to the supplied executed run; new inputs or settings require recomputation.
-
-GitHub displays notebook files as static documents. See [GitHub's notebook documentation](https://docs.github.com/en/repositories/working-with-files/using-files/working-with-non-code-files#working-with-jupyter-notebook-files-on-github).
+Notebooks contain source cells without saved outputs, execution counts or execution metadata. Run the appropriate stages with the required external inputs to generate numerical results and figures. Completed result directories can be reused through the entry points listed above.
 
 ## Resources and continuing a run
 
@@ -129,8 +127,16 @@ The default process limit is 88 GiB, with at least 12 GiB of available system me
 
 Completed stages, annual histories, assignment worlds, and model worlds are reused when their settings and samples match. Increasing replicates can append worlds within the same assignment design. Use a separate run_name for a different sample or input dataset and a separate scenario for different matching rules.
 
-## Uploading to GitHub
+## Static source checks
 
-Upload the contents of this directory to the repository root. Include the notebook files with their saved outputs. The supplied .gitignore excludes local datasets, generated result directories, runtime files, and local active-run settings.
+```bash
+python tools/check_sources.py
+```
 
-The repository contains no data tables from the underlying research corpus. The CITATION.cff file provides citation metadata for the code.
+GitHub Actions runs the same checks for Python syntax, JSON and notebook structure, including empty outputs and execution metadata. It does not execute notebooks, scientific analyses, randomization, model estimation or tests. R cells are checked as notebook source text; R syntax is not validated by this workflow.
+
+`.gitignore` excludes local datasets, generated result directories, runtime files and local active-run settings. Keep the notebook files and supporting modules together at the repository root.
+
+## Citation and license
+
+[CITATION.cff](CITATION.cff) provides the code citation metadata. The research code is available under the [MIT License](LICENSE). SciSciNet2-derived data, graph tables and other external inputs retain their source licenses and access conditions.
