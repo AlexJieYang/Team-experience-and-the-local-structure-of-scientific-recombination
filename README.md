@@ -4,6 +4,8 @@ This repository contains the Python and R workflow for studying how team members
 
 Python handles data preparation, sparse history reconstruction, and figures. R handles model estimation with fixest. Jupyter notebooks provide the analysis entry points.
 
+Official faculty profile: [Alex J. Yang — Nanjing University](https://im.nju.edu.cn/info/1103/53391.htm).
+
 ## Repository contents
 
 | File | Purpose |
